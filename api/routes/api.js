@@ -19,4 +19,28 @@ router.get('/getUser/:phoneNumber', function (req, res, next) {
     })
 });
 
+router.get('/addUser/:firstName/:lastName/:phoneNumber/:password', function (req, res, next) {
+    const user = req.params;
+    console.log("User ", user);
+
+    require("../db/procedures/getUserDetails").getUserDetails(user.phoneNumber, function (docs) {
+        if (docs.length == 0) {
+            require("../db/procedures/addUser").addUser(user, function (docs) {
+                if (docs.length == 0) {
+                    res.send("User not crreated");
+                }
+                else {
+                    res.json(docs);
+                }
+            })
+        }
+        else {
+            res.send("User already present");
+        }
+    })
+
+
+});
+
+
 module.exports = router;

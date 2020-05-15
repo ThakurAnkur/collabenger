@@ -1,0 +1,21 @@
+
+//SCHEMA
+
+/*USER*/
+/*
+  USER_ID
+  USER_NAME
+  USER_MOBILE
+  USER_PASSWORD
+  CHANNEL_LIST: []
+  ....
+*/
+
+/*MESSAGING*/
+/* 
+  FROM_USER
+  TO_USER
+  MESSAGE_TEXT
+  ....
+*/
+v

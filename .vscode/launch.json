@@ -1,13 +1,13 @@
 {
     "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/api/bin/app.js",
-            "skipFiles": [
-                "<node_internals>/**"
-            ]
-        }
+    {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "program": "${workspaceFolder}\\api\\bin\\www",
+        "skipFiles": [
+            "<node_internals>/**"
+        ]
+    }
     ]
 }

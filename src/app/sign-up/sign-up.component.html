@@ -1,0 +1,14 @@
+<div class="form-container">
+    <mat-form-field [hideRequiredMarker]="true" [floatLabel]="'auto'">
+        <input matInput placeholder="First Name" [(ngModel)]="firstName" required>
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]="true" [floatLabel]="'auto'">
+        <input matInput placeholder="Last Name" [(ngModel)]="lastName" required>
+    </mat-form-field>
+    <mat-form-field [hideRequiredMarker]="true" [floatLabel]="'auto'">
+        <input matInput placeholder="Phone Number" [(ngModel)]="phoneNumber" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSignUpClick()">Sign Up</button>
+    <br/>
+    {{signUpStatus}}
+</div>

@@ -1,0 +1,15 @@
+<div class="form-container">
+    <mat-form-field [hideRequiredMarker]="true" [floatLabel]="'auto'">
+        <input matInput placeholder="Phone Number" [(ngModel)]="phoneNumber" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onSignInClick()">Sign In</button>
+    
+    <br/>
+    {{loginStatus}}
+
+    <br/>
+    <br/>
+    <br/>
+    <button mat-raised-button color="warn" (click)="onSignInClick()" [routerLink]="['/signup']" >Register</button>
+</div>
+    

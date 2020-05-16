@@ -14,6 +14,7 @@ router.get('/getUser/:phoneNumber', function (req, res, next) {
             res.send("No Such USer");
         }
         else {
+            console.log("--->", req.session, req.sessionID);
             res.json(docs);
         }
     })
@@ -41,6 +42,26 @@ router.get('/addUser/:firstName/:lastName/:phoneNumber', function (req, res, nex
 
 
 });
+
+
+router.get('/login/:phoneNumber', function (req, res, next) {
+    const userRequests = req.params;
+    console.log("User Requests", userRequests);
+    require("../db/procedures/getUserDetails").getUserDetails(userRequests.phoneNumber, function (docs) {
+        if (docs.length == 0) {
+            res.send("No Such USer");
+        }
+        else {
+           // req.session.userid = docs[0]._id;
+            require("../db/procedures/addSessionKey").addSessionKey(docs[0]._id, req.sessionID, function (docs) {
+                res.json(docs);
+            })
+            console.log("--->", req.session, req.sessionID);
+        }
+    })
+});
+
+
 
 
 module.exports = router;

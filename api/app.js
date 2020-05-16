@@ -3,6 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+var con = require('./db/connection')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -11,6 +14,13 @@ var cors = require('cors')
 
 var app = express();
 
+app.use(session({
+  secret: 'keyboard cat',
+  store: new MongoStore({
+      url: `mongodb+srv://collabenger:166n5QNIBcSD6pEr@cluster0-gxtxd.mongodb.net/test?retryWrites=true&w=majority`,
+      dbName: 'COLLABENGER'
+  })
+}));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../services/authentication.service'
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -8,7 +9,7 @@ import { AuthenticationService } from '../services/authentication.service'
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private router: Router) { }
   phoneNumber: string;
   userDetails:any;
   loginStatus: string = "Click to login.";
@@ -26,6 +27,7 @@ export class SignInComponent implements OnInit {
       (results: any) => {
         console.log("User Logged in :",results);
         this.loginStatus = "Success";
+        this.router.navigate(['home']);
      },
       (error) => {
         console.error(error);

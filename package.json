@@ -30,11 +30,13 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "hammerjs": "^2.0.8",
+    "glob": "^7.1.6",
     "http-errors": "~1.6.3",
     "mongodb": "^3.5.7",
     "morgan": "~1.9.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
+    "websocket": "^1.0.31",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

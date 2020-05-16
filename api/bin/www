@@ -7,6 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('collabenger:server');
 var http = require('http');
+var logger = require('morgan');
+var listenForWebSocket = require('./listenForWebSocket').default;
+
 
 /**
  * Get port from environment and store in Express.
@@ -88,3 +91,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+listenForWebSocket();

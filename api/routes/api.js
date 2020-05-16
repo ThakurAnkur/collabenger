@@ -19,7 +19,7 @@ router.get('/getUser/:phoneNumber', function (req, res, next) {
     })
 });
 
-router.get('/addUser/:firstName/:lastName/:phoneNumber/:password', function (req, res, next) {
+router.get('/addUser/:firstName/:lastName/:phoneNumber', function (req, res, next) {
     const user = req.params;
     console.log("User ", user);
 

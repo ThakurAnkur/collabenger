@@ -44,20 +44,39 @@ router.get('/addUser/:firstName/:lastName/:phoneNumber', function (req, res, nex
 });
 
 
-router.get('/login/:phoneNumber', function (req, res, next) {
+// router.get('/login/:phoneNumber', function (req, res, next) {
+//     const userRequests = req.params;
+//     console.log("User Requests", userRequests);
+//     require("../db/procedures/getUserDetails").getUserDetails(userRequests.phoneNumber, function (docs) {
+//         if (docs.length == 0) {
+//             res.send("No Such USer");
+//         }
+//         else {
+//            // req.session.userid = docs[0]._id;
+//             require("../db/procedures/addSessionKey").addSessionKey(docs[0]._id, req.sessionID, function (docs) {
+//                 res.json(docs);
+//             })
+//             console.log("--->", req.session, req.sessionID);
+//         }
+//     })
+// });
+
+router.get('/search/:phoneNumber', function (req, res, next) {
     const userRequests = req.params;
-    console.log("User Requests", userRequests);
     require("../db/procedures/getUserDetails").getUserDetails(userRequests.phoneNumber, function (docs) {
         if (docs.length == 0) {
             res.send("No Such USer");
         }
         else {
-           // req.session.userid = docs[0]._id;
-            require("../db/procedures/addSessionKey").addSessionKey(docs[0]._id, req.sessionID, function (docs) {
-                res.json(docs);
-            })
-            console.log("--->", req.session, req.sessionID);
+            res.json(docs[0]);
         }
+    })
+});
+
+router.get('/generateChannelId/:senderId/:recieverId', function (req, res, next) {
+    const params = req.params;
+    require("../db/procedures/generateChannelId").generateChannelId(params.senderId, params.recieverId, function (docs) {
+        res.json(docs);
     })
 });
 

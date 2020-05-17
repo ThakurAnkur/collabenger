@@ -1,7 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { HomeComponent} from './home/home.component'
+import { HomeComponent } from './home/home.component';
+import { MessagePanelComponent } from './message-panel/message-panel.component';
 
 
 //import { AlwaysAuthGuard } from "./routerGaurd";
@@ -12,7 +13,7 @@ const routes: Routes = [
     path: 'signin',
     component: SignInComponent
   },
-  
+
   // map '/signup/' to sign in page
   {
     path: 'signup',
@@ -23,7 +24,14 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
+
+  // map '/messagePanel/' to sign in page
+  {
+    path: 'messagePanel/:phoneNumber',
+    component: MessagePanelComponent
+  },
   // map '/' to '/signin' as our default route
+
   {
     path: '',
     redirectTo: '/signin',

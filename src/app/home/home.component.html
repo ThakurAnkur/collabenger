@@ -1,1 +1,10 @@
-<p>home works!</p>
+<mat-form-field class="example-full-width">
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="" value="" [(ngModel)]="searchText">
+</mat-form-field>
+<button mat-raised-button color="primary" (click)="search()">Sign In</button>
+
+<div class="search-result" *ngIf="searchResult">
+    <h2>Name: {{searchResult.firstName}}</h2>
+    <button mat-raised-button color="primary" (click)="sendMessage()">Message</button>
+</div>
